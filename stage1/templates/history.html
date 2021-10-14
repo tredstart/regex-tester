@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+    <ul>
+        {% for record in records %}
+            <li><a href="/result/{{ record.id }}/">{{ record.regex }}</a></li>
+        {% endfor %}
+
+    </ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+
+<h2>Description</h2>
+
+<p>Regular expressions are very helpful when you have to find a match using some pattern. How many of them could be there? There is an infinite number of them, indeed we can&#39;t memorize all of them. Why don&#39;t we make a computer store all the information for us? This is the most efficient way, and we will have a preview of every input that the user has provided, and the result of comparing it to the string.</p>
+
+<p>To accomplish that, we need to connect a database. &nbsp;</p>
+
+<h2>Objectives</h2>
+
+<p>To begin with the project, we should really think of how all the data would be organized. In our case, user inputs truly matter. If you look at the pattern matching itself, you will realize that we have only two things that users should provide us: some pattern and some text to compare to. That&#39;s what we need to <em><u>record</u></em>! Furthermore, we are expecting the outcome of the comparison, so we can understand if the pattern is any good. And, we must keep these things connected to each other to make sure the result isn&#39;t from the different test. That&#39;s where we come up with the data model.</p>
+
+<p>Your <code>Record</code> model should contain <code>regex</code>, ⁣<code> text</code>, and <code>result</code> fields. The <code>regex</code> field is text and no longer than 50 symbols. As for the <code>text</code> field, its max length should be 1024. The last one must be boolean.</p>
+
+<p>Define <code>Record</code> in the <em>models.py</em> module and migrate it to the database.</p>
+
+<p>Checkpoint! Our model is precisely what we wanted to develop. Now we are certain that the user will be able to check history, which you will implement later in this project.</p>
+</html>

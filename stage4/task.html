@@ -1,0 +1,36 @@
+<html>
+
+<h2>Description</h2>
+
+<p>Awesome! In the final stage, we will create a history page and a page that correctly shows the result of a comparison. From now on, the user will be redirected to the specific page with the result, instead of just printing out <em>True</em> or <em>False</em>. That's more, the user will be able to check all previous tests and open them again.  </p>
+
+<h2>Objectives</h2>
+
+<p>The first task is to create views for history and result pages. The result page should display the regexp, text, and result fields. The history page should be an unordered list of all records, with newer ones on top, and to implement that, you just need to reverse every entry of the list of the objects in the database. To access data in the template,  you have to pass the <code>record</code> to the <code>context</code> variable in the render function in your view. Same for the history page. Use the <a href="https://docs.djangoproject.com/en/3.2/ref/templates/builtins/#for" rel="noopener noreferrer nofollow">for</a> tag in your history template to list every entry. </p>
+
+<p>Links to the result page have to contain the primary key to the object, so you can get this object in your view. In Django, primary keys are <code>id</code> fields of objects and are created automatically. To achieve that, your <code>urlpatterns</code> variable must look like this:</p>
+
+<pre><code class="language-python">urlpatterns = [
+    ...
+    path('result/&lt;int:pk&gt;/', Result.as_view(), name='result'),
+    ...
+]</code></pre>
+
+<p>Here <code>int</code> is the type, and <code>pk</code> is the name of the key in the <code>kwargs</code> dictionary.</p>
+
+<p>The second task is to change <code>HttpResponse</code> from the previous stage to another function, so it will bring us to the result page. For that, <a href="https://docs.djangoproject.com/en/3.2/topics/http/shortcuts/#redirect" rel="noopener noreferrer nofollow">use a<code> redirect</code> function</a> from  <code>django.shortcuts</code>. In the redirect function, place also the ID of the record as a parameter.</p>
+
+<p>Your final task will be adding a link to result page inside every <code>&lt;li&gt;&lt;/li&gt;</code> in the template. Inside the <code>href</code> attribute, you should put <code>result/<strong><u><em>id</em></u></strong>/</code><strong><u><em>,</em></u></strong> where <code>id</code> you can get from the passed variable.</p>
+
+<h2>Examples</h2>
+
+<p>Using data from the previous example, the page <code><em>localhost:8000/result/1/</em></code><em> </em>should look like this:</p>
+
+<pre><code class="language-html">&lt;p&gt;Regex: ^[a-z0-9_-]{3,16}$&lt;/p&gt;
+&lt;p&gt;Text: thrawn_66&lt;/p&gt;
+&lt;p&gt;True&lt;/p&gt;</code></pre>
+
+<p><span style="color: #000000;">And the </span><code><em>localhost:8000/history/</em></code><em> </em><span style="color: #000000;">page should look like this:</span></p>
+
+<pre><code class="language-html">&lt;li&gt;&lt;a href="/result/2/"&gt;[\d]{1,2}$&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="/result/1/"&gt;^[a-z0-9_-]{3,16}$&lt;/a&gt;&lt;/li&gt;</code></pre></html>

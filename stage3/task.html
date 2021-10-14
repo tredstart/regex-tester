@@ -1,0 +1,20 @@
+<html>
+
+<h2>Description</h2>
+
+<p>Now our service takes input but nothing happens. Let's change it! This time, the user should get a response from the service, after filling up the form with the template and string and submitting it.</p>
+
+<h2>Objectives</h2>
+
+<p>We need to match the pattern and string provided by the user. Again, it's good not to do all the work manually. Besides, why try to match the pattern ourselves if we have a module that was created specifically for such a task?</p>
+
+<p>Your task is to create a handler for the form using the <code>re</code> module. Firstly, you have to import this module and get the regex and string from the POST request in the view function. Then, the handler should try matching the submitted regex to the string and show the result to the user. At this stage, it should return an <code>HttpResponse</code> from <code><span style="color: #64b0f4;">django.http</span></code> with <em>True</em> or <em>False</em>. Be careful! The matching method does not return a boolean by itself. At this stage, we use <code>HttpResponse</code> only to check the result.</p>
+
+<p>Furthermore, right after testing a pattern, the service must save it to the database. Use a previously created <code>Record</code> model to do that. Remember, the <code>result</code> field is <em><u>boolean</u></em>, and the form method has to be POST.</p>
+
+<h2>Examples</h2>
+
+<p>For instance, the user entered <code>^[a-z0-9_-]{3,16}$</code> to match an alphanumeric string for their username with length from 3 to 16 symbols. As a string, the user enters <code>thrawn_66</code>. After submitting, the service should return <code>True</code>.</p>
+
+<p>Another example: user wants to check the age. First input is <code>[\d]{1,2}$ </code>. It should match positive numbers with lengths from 1 to 2. When the user enters for the <code>string</code> field <code>twenty</code>, the result of a test must be <code>False</code>.</p>
+</html>

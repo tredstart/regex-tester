@@ -1,0 +1,31 @@
+<html>
+
+<h2>Description</h2>
+
+<p>Wonderful! Now, when we have where to store tests, what could we do next? Apparently, there should be some page with form to get inputs from users. With that simple solution, anyone will be able to try out their knowledge.</p>
+
+<h2>Objectives</h2>
+
+<p>Basically, you build a web page using HTML/CSS/JS. Pages that do not change information on them, are called static. For example, if you need to create a simple one-page portfolio, where you just want to place information about yourself, you only write text in your HTML document, and it is shown in your browser. But this method isn't perfect when you're creating a blog, for instance because it would be better not to create pages for each post. The solution for this is creating dynamic pages using templates. In our application, we will have a couple of pages that don't change their layout, but whose content changes constantly. You really don't want to write every page yourself, that's where templates become handy.</p>
+
+<p>This time, the task is just to create a home page as an HTML template and connect Django view to it. The template should be with a simple layout:</p>
+
+<ul>
+	<li>At the top of the page, we will place a greeting message: <code><span style="color: #ff9933;">&lt;h2&gt;</span> Welcome to regex testing tool! <span style="color: #ff9933;">&lt;/h2&gt;</span></code><span style="color: #ff9933;">.</span></li>
+	<li>Next, there should appear a main form with two text fields and a submit button. Don't forget to put <a href="https://docs.djangoproject.com/en/3.2/ref/csrf/" rel="noopener noreferrer nofollow">csrf_token</a> in your form! For your input tag, you have to use attribute <code>name=...</code> because you will access data from the form using these names. Please use 'regex' and 'text' for name attributes.</li>
+	<li>And at the bottom, add a link to the history page: <code><span style="color: #ff9933;">&lt;a</span> href<span style="color: #66cc66;">="/history/"</span><span style="color: #ff9933;">&gt;</span> History <span style="color: #ff9933;">&lt;/a&gt;</span></code><span style="color: #ff9933;">.</span></li>
+</ul>
+
+<p>This main page needs to be available under GET request to <em>localhost:8000.</em> Create a view that renders a template for it. To complete that, use <code class="language-html">django.shortcuts.render</code> function: <code>render(request, template_name)</code>.</p>
+
+<p>If you want to use a custom directory for your templates, add its path to the <code class="language-html">TEMPLATE['DIRS']</code> list in the <em>settings.py</em> module.</p>
+
+<p>Don't worry, we'll implement handlers in the next stages.</p>
+
+<p>If you start the application on your computer with the <code class="language-html">python manage.py runserver</code> command, the main page should be available at the address <em>localhost:8000</em>.</p>
+
+<h2>Example</h2>
+
+<p>Your main page should look similar to this:</p>
+
+<p><img alt="" height="115" name="Screenshot 2021-10-12 at 18-45-55 some title.png" src="https://ucarecdn.com/dc1c77ec-0954-41a9-83cb-a2243e5dc881/-/crop/968x115/0,0/-/preview/" width="968"></p></html>
