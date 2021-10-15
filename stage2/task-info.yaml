@@ -1,8 +1,37 @@
 type: edu
 files:
+- name: __init__.py
+  visible: true
+- name: manage.py
+  visible: true
+- name: regexp/wsgi.py
+  visible: true
+- name: regexp/__init__.py
+  visible: true
+- name: regexp/asgi.py
+  visible: true
+- name: regexp/settings.py
+  visible: true
+- name: regexp/urls.py
+  visible: true
+- name: record/__init__.py
+  visible: true
+- name: record/admin.py
+  visible: true
+- name: record/apps.py
+  visible: true
+- name: record/migrations/__init__.py
+  visible: true
+- name: record/models.py
+  visible: true
+- name: record/tests.py
+  visible: true
+- name: record/views.py
+  visible: true
 - name: test/__init__.py
   visible: false
 - name: test/base.py
   visible: false
 - name: tests.py
   visible: false
+
